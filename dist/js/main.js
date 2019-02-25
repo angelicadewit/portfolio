@@ -8,7 +8,9 @@ var app = new PIXI.Application({
 });
 
 var container = new PIXI.Container();
-// emitter.emit = true;
+container.x = 500;
+container.y = 600;
+app.stage.addChild(container);
 
 var manifest = [{
     "key": "fox",
@@ -26,8 +28,11 @@ var manifest = [{
     "key": "treeThree",
     "url": "dist/img/tree3.png"
 }, {
-    "key": "background",
+    "key": "foreground",
     "url": "dist/img/background.jpg"
+}, {
+    "key": "background",
+    "url": "dist/img/bghorizontalcrop.png"
 }];
 
 // let treeOne = new PIXI.Sprite(app.loader.resources.treeOne.texture)
@@ -42,11 +47,11 @@ function loadAssets() {
 function onAssetsLoaded(loader, resources) {
     console.log(resources);
 
-    setupBackground();
+    // setupBackground()
 
-    setupTreesRowTwo();
+    // setupTreeRowOne()
 
-    setupTreeRowOne();
+    // setupTreesRowTwo()
 
     app.ticker.add(function (e) {
         return update(e);
@@ -55,30 +60,31 @@ function onAssetsLoaded(loader, resources) {
 
 function setupBackground() {
     var bg = new PIXI.Sprite(app.loader.resources.background.texture);
-    // bg.height = 1000;
-    bg.mask = mask;
+    app.stage.addChild(bg);
 }
 
-function setupTreesRowOne() {
+function setupTreeRowOne() {
+    console.log("one");
 
     var tree = void 0;
     for (var i = 0; i < 10; i++) {
         tree = new PIXI.Sprite(app.loader.resources.treeThree.texture);
-
-        tree.x = 150 + i * 100;
-        tree.y = 100;
+        tree.anchor.set(0.5, 1);
+        tree.x = 610;
+        tree.y = 150 + i * 100;
         app.stage.addChild(tree);
     }
 }
 
 function setupTreesRowTwo() {
+    console.log("two");
 
     var tree = void 0;
     for (var i = 0; i < 15; i++) {
         tree = new PIXI.Sprite(app.loader.resources.treeThree.texture);
-
+        tree.anchor.set(0.5, 1);
         tree.x = 150 + i * 70;
-        tree.y = 60;
+        tree.y = 610;
         app.stage.addChild(tree);
     }
 }
@@ -100,12 +106,6 @@ function resize(e) {
 
     app.view.style.transform = "scale(" + scale + ")";
 }
-
-window.onload = function () {
-    window.addEventListener("resize", resize);
-    resize();
-    loadAssets();
-};
 
 var emitter = new PIXI.particles.Emitter(container, [PIXI.Texture.fromImage('dist/img/snow100.png')], {
     "alpha": {
@@ -154,10 +154,19 @@ var emitter = new PIXI.particles.Emitter(container, [PIXI.Texture.fromImage('dis
     },
     "addAtBack": false,
     "spawnType": "circle",
+    "autoUpdate": true,
     "spawnCircle": {
         "x": 0,
         "y": 0,
         "r": 0
     }
 });
+
+emitter.emit = true;
+
+window.onload = function () {
+    window.addEventListener("resize", resize);
+    resize();
+    loadAssets();
+};
 //# sourceMappingURL=main.js.map

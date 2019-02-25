@@ -1,0 +1,53 @@
+@mixin light-sans{
+    font-family: canada-type-gibson, sans-serif;
+    font-weight: 300;
+    color: #000d0c;
+}
+
+@mixin regular-sans{
+    font-family: canada-type-gibson, sans-serif;
+    font-weight: 400;
+    color: #000d0c;
+}
+
+@mixin bold-sans{
+    font-family: canada-type-gibson, sans-serif;
+    font-weight: 700;
+    color: #000d0c;
+}
+@mixin nav-font{
+    font-family: pulpo-rust-75, serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin bold-serif{
+    font-family: minion-std-black, sans-serif;
+	font-weight: 700;
+    font-style: normal;
+    color: #316083;
+}
+
+
+$tablet-breakpoint: 700px;
+$desktop-breakpoint: 1024px;
+$bigdesktop-breakpoint: 1100px;
+// $superbigdesktop-breakpoint: 1400px;
+
+@mixin tablet {
+	@media only screen and (min-width: $tablet-breakpoint){
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media only screen and (min-width: $desktop-breakpoint){
+		@content;
+	}
+}
+
+@mixin bg-desktop {
+	@media only screen and (min-width: $bigdesktop-breakpoint){
+		@content;
+	}
+}

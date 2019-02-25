@@ -16,6 +16,8 @@ TABLE OF CONTENTS:
 /* 0. Reset ================================= */
 @import 'reset';
 @import url("https://use.typekit.net/wyk8wvv.css");
+@import 'variables';
+
 
 /* 1. Main Layout ================================= */
 
@@ -24,15 +26,20 @@ TABLE OF CONTENTS:
 }
 
 body {
-	background: url(../img/img212.png) no-repeat;
-	// background: black;
+	background: url(../img/img212.jpg) no-repeat;
+	background-position: 70%;
 	background-size: cover;
+	background-attachment: fixed;
 	width: 100%;
-	height: 100%;
 	overflow-x: hidden;
-	font-family: minion-std-black, sans-serif;
-	font-weight: 700;
-	font-style: normal;
+}
+
+.wrapper{
+	margin: auto;
+	width: 90%;
+	@include desktop{
+		width: 80%;
+	}
 }
 
 
@@ -40,31 +47,238 @@ body {
 
 /* 2. Content ================================= */
 
+nav{
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+	background: #001935;
+
+	@include desktop{
+		background: -moz-linear-gradient(left, #001935 60%, rgba(0,0,0,0) 90%);
+		background: -webkit-linear-gradient(left, #001935 60%,rgba(0,0,0,0) 90%);
+		background: linear-gradient(to right, #001935 60%,rgba(0,0,0,0) 90%);
+	}
+	
+	ul{
+		display: flex;
+		width: 100%;
+		justify-content: space-around;
+		align-items: center;
+
+		@include desktop{
+			width: 70%;
+		}
+
+		li{
+			padding: 2%;
+		}
+		
+
+		a{
+			@include nav-font;
+			color: #b2cdd5;
+			font-size: 1.5rem;
+			text-decoration: none;
+
+			&:hover{
+				background: white;
+			}
+
+			@include tablet{
+				font-size: 2rem;
+			}
+		}
+	}
+}
+
 #backgroundCanvas{
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	transform-origin: bottom;
 	position: fixed;
 }
 
-// .intro{
+.intro{
+	position: relative;
+	margin: 40% auto;
 	
-// }
+
+	@include tablet{
+		margin: 30% auto;
+		margin-bottom: 5%;
+	}
+}
 
 h1{
-	font-size: 5rem;
-	color: white;
+	@include bold-serif;
+	font-size: 4rem;
 	text-align: center;
-	margin: 30%;
-	margin-bottom: 0%;
+	// margin: 30%;
+	// margin-bottom: 0%;
+
+	@include desktop{
+		font-size: 7rem;
+	}
 }
 
 span{
-	color: white;
-	font-family: canada-type-gibson;
-	font-weight: 300;
-	font-size: 5rem;
+	@include light-sans;
+	font-size: 2rem;
 	text-align: center;
 	display: block;
+	
+	@include desktop{
+		font-size: 4rem;
+	}
 }
+
+//WORK
+
+h2{
+	@include bold-serif;
+	font-size: 3rem;
+	margin-bottom: 50px;
+}
+
+.odd{
+	text-align: left;
+}
+
+.even{
+	text-align: right;
+}
+
+.works{
+	@include desktop{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+}
+
+.project-preview{
+	width:	100%;
+	margin-bottom: 20%;
+
+	@include tablet{
+		margin-bottom: 25%;
+	}
+
+	@include desktop{
+		flex-basis: 45%;
+		min-width: 45%;
+		margin-bottom: 10%;
+	}
+
+
+	.description{
+		background: rgba(156,190,190,0.8);
+		position: relative;
+		transform: translate(0px,90px);
+		border: 1px solid black;
+		padding-bottom: 5%;
+		width: 100%;
+
+		@include desktop{
+			transform: translate(10%,20%);
+			padding-bottom: 10%;
+		}
+
+		h3{
+			@include regular-sans;
+			font-size: 1.75rem;
+			padding: 20px 30px 0px;
+		}
+	
+		.category{
+			@include light-sans;
+			font-size: 1.5rem;
+			padding: 5px 30px 0px;
+		}
+
+		.buttons{
+			display: flex;
+			justify-content: space-around;
+			padding: 25px;
+			bottom: 0;
+			align-content: flex-end;
+		}
+
+		button{
+			background: black;
+			@include light-sans;
+			padding: 10px 25px;
+			
+			a{
+				color: white;
+				text-decoration: none;
+				text-transform: uppercase;
+				font-size: 20px;
+			}
+		}
+	}
+
+	.border{
+		width: 45%;
+		padding-bottom: 200px;
+		position: absolute;
+		pointer-events: none;
+		display: block;
+
+		@include tablet{
+			padding-bottom: 400px;
+			width: 60%;
+		}
+		
+		
+		&.one{
+			background: url(../img/work-border-one.png) no-repeat;
+			background-size: contain;
+			right: 0px;
+			transform: translate(5%,-52%);
+
+			@include tablet{
+				transform: translate(10%,-50%);	
+			}
+
+			@include desktop{
+				transform: translate(15%,-20%);
+			}
+
+			@include bg-desktop{
+				transform: translate(15%,-35%);
+			}
+		}
+
+		&.two{
+			background: url(../img/work-border-two.png) no-repeat;
+			background-size: contain;
+			transform: translate(-5%,-52%);
+
+			@include tablet{
+				transform: translate(-10%,-50%);	
+			}
+
+			@include desktop{
+				transform: translate(-25%,-20%);
+			}
+
+			@include bg-desktop{
+				transform: translate(-25%,-35%);
+			}
+		}
+	}
+
+	&.krsteakbar{
+		background: url(../img/krsteakbar.png) no-repeat;
+		background-size: cover;
+		padding-bottom: 50px;
+	}
+	
+}
+
+
+

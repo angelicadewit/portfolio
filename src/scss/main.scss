@@ -42,6 +42,10 @@ body {
 	}
 }
 
+#nav-thing{
+	height: 500px;
+}
+
 
 
 
@@ -77,7 +81,7 @@ nav{
 
 		a{
 			@include nav-font;
-			color: #b2cdd5;
+			color: $link-color;
 			font-size: 1.5rem;
 			text-decoration: none;
 
@@ -123,7 +127,7 @@ h1{
 	}
 }
 
-span{
+.landing-page{
 	@include light-sans;
 	font-size: 2rem;
 	text-align: center;
@@ -173,9 +177,14 @@ h2{
 		margin-bottom: 10%;
 	}
 
+	@include bg-desktop{
+		flex-basis: 35%;
+		min-width: 43%;
+	}
+
 
 	.description{
-		background: rgba(156,190,190,0.8);
+		@include description-color;
 		position: relative;
 		transform: translate(0px,90px);
 		border: 1px solid black;
@@ -277,8 +286,88 @@ h2{
 		background-size: cover;
 		padding-bottom: 50px;
 	}
-	
 }
 
+// About
 
+.third-row{
+	li{
+		padding-bottom: 5%;
+	}
+}
 
+.header{
+	@include description-color;
+	width: 100%;
+	text-align: center;
+	
+	h2{
+		padding: 20px 0px;
+	}
+}
+
+.pic{
+	width: 100%;
+	margin-bottom: 25px;
+
+	img{
+		width: 100%;
+		border: 10px solid rgba(156,190,190,0.8);
+		
+	}
+}
+
+.logo{
+	width: 100%;
+	margin-bottom: 25px;
+
+	img{
+		width: 100%;
+	}
+}
+
+.canvas-play{
+	display: none;
+}
+
+.five-w{
+	@include description-color;
+	padding: 5%;
+	margin-bottom: 25px;
+
+	li{
+		padding-bottom: 4%;
+
+		&:last-child{
+			padding-bottom: 0;
+		}
+	}
+
+	h3{
+		@include regular-sans;
+		text-decoration: underline;
+		text-transform: uppercase;
+		font-size: 20px;
+		padding-bottom: 5px;
+	}
+
+	.five-w-answers{
+		@include light-sans;
+		font-size: 20px;
+		padding-bottom: 20px;
+	}
+}
+
+.blurb{
+	@include description-color;
+	padding: 5%;
+
+	p{
+		@include light-sans;
+		font-size: 18px;
+	}
+
+	a{
+		color: #000d0c;
+	}
+}

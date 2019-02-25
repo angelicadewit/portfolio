@@ -1,3 +1,7 @@
+@mixin description-color{
+    background: rgba(156,190,190,0.8);
+}
+
 @mixin light-sans{
     font-family: canada-type-gibson, sans-serif;
     font-weight: 300;
@@ -28,6 +32,7 @@
     color: #316083;
 }
 
+$link-color: #b2cdd5;
 
 $tablet-breakpoint: 700px;
 $desktop-breakpoint: 1024px;

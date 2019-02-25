@@ -93,6 +93,10 @@ body {
 	}
 }
 
+#nav-thing {
+	height: 500px;
+}
+
 /* 2. Content ================================= */
 nav {
 	bottom: 0;
@@ -181,7 +185,7 @@ h1 {
 	}
 }
 
-span {
+.landing-page {
 	font-family: canada-type-gibson, sans-serif;
 	font-weight: 300;
 	color: #000d0c;
@@ -191,7 +195,7 @@ span {
 }
 
 @media only screen and (min-width: 1024px) {
-	span {
+	.landing-page {
 		font-size: 4rem;
 	}
 }
@@ -238,6 +242,13 @@ h2 {
 		flex-basis: 45%;
 		min-width: 45%;
 		margin-bottom: 10%;
+	}
+}
+
+@media only screen and (min-width: 1100px) {
+	.project-preview {
+		flex-basis: 35%;
+		min-width: 43%;
 	}
 }
 
@@ -364,6 +375,91 @@ h2 {
 	background: url(../img/krsteakbar.png) no-repeat;
 	background-size: cover;
 	padding-bottom: 50px;
+}
+
+.third-row li {
+	padding-bottom: 5%;
+}
+
+.header {
+	background: rgba(156, 190, 190, 0.8);
+	width: 100%;
+	text-align: center;
+}
+
+.header h2 {
+	padding: 20px 0px;
+}
+
+.pic {
+	width: 100%;
+	margin-bottom: 25px;
+}
+
+.pic img {
+	width: 100%;
+	border: 10px solid rgba(156, 190, 190, 0.8);
+}
+
+.logo {
+	width: 100%;
+	margin-bottom: 25px;
+}
+
+.logo img {
+	width: 100%;
+}
+
+.canvas-play {
+	display: none;
+}
+
+.five-w {
+	background: rgba(156, 190, 190, 0.8);
+	padding: 5%;
+	margin-bottom: 25px;
+}
+
+.five-w li {
+	padding-bottom: 4%;
+}
+
+.five-w li:last-child {
+	padding-bottom: 0;
+}
+
+.five-w h3 {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	color: #000d0c;
+	text-decoration: underline;
+	text-transform: uppercase;
+	font-size: 20px;
+	padding-bottom: 5px;
+}
+
+.five-w .five-w-answers {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	color: #000d0c;
+	font-size: 20px;
+	padding-bottom: 20px;
+}
+
+.blurb {
+	background: rgba(156, 190, 190, 0.8);
+	padding: 5%;
+}
+
+.blurb p {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 300;
+	color: #000d0c;
+	font-size: 18px;
+}
+
+.blurb a {
+	color: #000d0c;
 }
 
 /*# sourceMappingURL=main.css.map */

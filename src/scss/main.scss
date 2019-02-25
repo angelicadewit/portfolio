@@ -146,16 +146,8 @@ h2{
 	margin-bottom: 50px;
 }
 
-.odd{
-	text-align: left;
-}
-
-.even{
-	text-align: right;
-}
-
 .works{
-	@include desktop{
+	@include tablet{
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
@@ -168,13 +160,9 @@ h2{
 	margin-bottom: 20%;
 
 	@include tablet{
-		margin-bottom: 25%;
-	}
-
-	@include desktop{
 		flex-basis: 45%;
 		min-width: 45%;
-		margin-bottom: 10%;
+		margin-bottom: 15%;
 	}
 
 	@include bg-desktop{
@@ -191,6 +179,14 @@ h2{
 		padding-bottom: 5%;
 		width: 100%;
 
+		&.odd{
+			text-align: left;
+		}
+		
+		&.even{
+			text-align: right;
+		}
+
 		@include desktop{
 			transform: translate(10%,20%);
 			padding-bottom: 10%;
@@ -206,6 +202,7 @@ h2{
 			@include light-sans;
 			font-size: 1.5rem;
 			padding: 5px 30px 0px;
+			display: inline;
 		}
 
 		.buttons{
@@ -238,7 +235,6 @@ h2{
 		display: block;
 
 		@include tablet{
-			padding-bottom: 400px;
 			width: 60%;
 		}
 		
@@ -250,11 +246,11 @@ h2{
 			transform: translate(5%,-52%);
 
 			@include tablet{
-				transform: translate(10%,-50%);	
+				transform: translate(15%,-50%);	
 			}
 
 			@include desktop{
-				transform: translate(15%,-20%);
+				transform: translate(15%,-35%);
 			}
 
 			@include bg-desktop{
@@ -268,11 +264,11 @@ h2{
 			transform: translate(-5%,-52%);
 
 			@include tablet{
-				transform: translate(-10%,-50%);	
+				transform: translate(-20%,-50%);	
 			}
 
 			@include desktop{
-				transform: translate(-25%,-20%);
+				transform: translate(-25%,-35%);
 			}
 
 			@include bg-desktop{
@@ -285,12 +281,36 @@ h2{
 		background: url(../img/krsteakbar.png) no-repeat;
 		background-size: cover;
 		padding-bottom: 50px;
+
+		@include tablet{
+			background-size: contain;
+		}
+
+		@include desktop{
+			background-size: cover;
+		}
 	}
 }
 
 // About
 
+.about-content{
+	@include tablet{
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.second-row{
+	display: flex;
+	flex-direction: row;
+}
+
 .third-row{
+	@include tablet{
+		display: flex;
+		justify-content: space-between;
+	}
 	li{
 		padding-bottom: 5%;
 	}
@@ -310,30 +330,58 @@ h2{
 	width: 100%;
 	margin-bottom: 25px;
 
+	@include tablet{
+		margin-right: 2%;
+	}
+
 	img{
 		width: 100%;
 		border: 10px solid rgba(156,190,190,0.8);
 		
 	}
+
 }
 
 .logo{
-	width: 100%;
+	width: 50%;
 	margin-bottom: 25px;
+	align-self: center;
+
+	@include tablet{
+		flex-basis: 50%;
+	}
+
+	// @include desktop{
+	// 	flex-basis: 20%;
+	// }
 
 	img{
 		width: 100%;
 	}
 }
 
-.canvas-play{
-	display: none;
-}
+// .canvas-play{
+// 	visibility: hidden;
+// 	@include description-color;
+// 	width: 40%;
+	
+// 	@include desktop{
+// 		visibility: visible;
+// 	}
+// }
 
 .five-w{
 	@include description-color;
 	padding: 5%;
 	margin-bottom: 25px;
+
+	@include tablet{
+		margin-bottom: 0px;
+	}
+
+	@include desktop{
+		margin-right:1%;
+	}
 
 	li{
 		padding-bottom: 4%;
@@ -362,9 +410,22 @@ h2{
 	@include description-color;
 	padding: 5%;
 
+	@include tablet{
+		width: 62%;
+	}
+	@include desktop{
+		width: 70%;
+	}
+
 	p{
 		@include light-sans;
 		font-size: 18px;
+		line-height: 1.25em;
+
+		@include tablet{
+			font-size: 24px;
+		}
+
 	}
 
 	a{

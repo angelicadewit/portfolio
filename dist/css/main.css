@@ -209,15 +209,7 @@ h2 {
 	margin-bottom: 50px;
 }
 
-.odd {
-	text-align: left;
-}
-
-.even {
-	text-align: right;
-}
-
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 700px) {
 	.works {
 		display: flex;
 		flex-direction: row;
@@ -233,15 +225,9 @@ h2 {
 
 @media only screen and (min-width: 700px) {
 	.project-preview {
-		margin-bottom: 25%;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.project-preview {
 		flex-basis: 45%;
 		min-width: 45%;
-		margin-bottom: 10%;
+		margin-bottom: 15%;
 	}
 }
 
@@ -259,6 +245,14 @@ h2 {
 	border: 1px solid black;
 	padding-bottom: 5%;
 	width: 100%;
+}
+
+.project-preview .description.odd {
+	text-align: left;
+}
+
+.project-preview .description.even {
+	text-align: right;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -282,6 +276,7 @@ h2 {
 	color: #000d0c;
 	font-size: 1.5rem;
 	padding: 5px 30px 0px;
+	display: inline;
 }
 
 .project-preview .description .buttons {
@@ -317,7 +312,6 @@ h2 {
 
 @media only screen and (min-width: 700px) {
 	.project-preview .border {
-		padding-bottom: 400px;
 		width: 60%;
 	}
 }
@@ -331,13 +325,13 @@ h2 {
 
 @media only screen and (min-width: 700px) {
 	.project-preview .border.one {
-		transform: translate(10%, -50%);
+		transform: translate(15%, -50%);
 	}
 }
 
 @media only screen and (min-width: 1024px) {
 	.project-preview .border.one {
-		transform: translate(15%, -20%);
+		transform: translate(15%, -35%);
 	}
 }
 
@@ -355,13 +349,13 @@ h2 {
 
 @media only screen and (min-width: 700px) {
 	.project-preview .border.two {
-		transform: translate(-10%, -50%);
+		transform: translate(-20%, -50%);
 	}
 }
 
 @media only screen and (min-width: 1024px) {
 	.project-preview .border.two {
-		transform: translate(-25%, -20%);
+		transform: translate(-25%, -35%);
 	}
 }
 
@@ -375,6 +369,37 @@ h2 {
 	background: url(../img/krsteakbar.png) no-repeat;
 	background-size: cover;
 	padding-bottom: 50px;
+}
+
+@media only screen and (min-width: 700px) {
+	.project-preview.krsteakbar {
+		background-size: contain;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.project-preview.krsteakbar {
+		background-size: cover;
+	}
+}
+
+@media only screen and (min-width: 700px) {
+	.about-content {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.second-row {
+	display: flex;
+	flex-direction: row;
+}
+
+@media only screen and (min-width: 700px) {
+	.third-row {
+		display: flex;
+		justify-content: space-between;
+	}
 }
 
 .third-row li {
@@ -396,28 +421,49 @@ h2 {
 	margin-bottom: 25px;
 }
 
+@media only screen and (min-width: 700px) {
+	.pic {
+		margin-right: 2%;
+	}
+}
+
 .pic img {
 	width: 100%;
 	border: 10px solid rgba(156, 190, 190, 0.8);
 }
 
 .logo {
-	width: 100%;
+	width: 50%;
 	margin-bottom: 25px;
+	align-self: center;
+}
+
+@media only screen and (min-width: 700px) {
+	.logo {
+		flex-basis: 50%;
+	}
 }
 
 .logo img {
 	width: 100%;
 }
 
-.canvas-play {
-	display: none;
-}
-
 .five-w {
 	background: rgba(156, 190, 190, 0.8);
 	padding: 5%;
 	margin-bottom: 25px;
+}
+
+@media only screen and (min-width: 700px) {
+	.five-w {
+		margin-bottom: 0px;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.five-w {
+		margin-right: 1%;
+	}
 }
 
 .five-w li {
@@ -451,11 +497,30 @@ h2 {
 	padding: 5%;
 }
 
+@media only screen and (min-width: 700px) {
+	.blurb {
+		width: 62%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.blurb {
+		width: 70%;
+	}
+}
+
 .blurb p {
 	font-family: canada-type-gibson, sans-serif;
 	font-weight: 300;
 	color: #000d0c;
 	font-size: 18px;
+	line-height: 1.25em;
+}
+
+@media only screen and (min-width: 700px) {
+	.blurb p {
+		font-size: 24px;
+	}
 }
 
 .blurb a {

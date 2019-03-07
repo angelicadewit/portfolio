@@ -130,12 +130,14 @@ function setupFogOne() {
 
     var vidTex = new PIXI.Texture.fromVideo(app.loader.resources.inkblot.data);
     var vid = new PIXI.Sprite(vidTex);
+
+    vid.anchor.set(0.2);
     app.stage.addChild(vid);
 
     vidTex.baseTexture.source.setAttribute("loop", "");
 
     var fogOne = new PIXI.Sprite(app.loader.resources.fogOne.texture);
-    fogOne.opacity = 0.5;
+    fogOne.alpha = 0.5;
     fogOne.y = 100;
     app.stage.addChild(fogOne);
 

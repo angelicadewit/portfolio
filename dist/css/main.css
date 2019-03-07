@@ -89,7 +89,13 @@ body {
 
 @media only screen and (min-width: 1024px) {
 	.wrapper {
-		width: 80%;
+		max-width: 80%;
+	}
+}
+
+@media only screen and (min-width: 1100px) {
+	.wrapper {
+		max-width: 960px;
 	}
 }
 
@@ -156,6 +162,7 @@ nav ul a:hover {
 	width: 100%;
 	transform-origin: bottom;
 	position: fixed;
+	z-index: -1;
 }
 
 .intro {
@@ -218,13 +225,13 @@ h2 {
 	}
 }
 
-.project-preview {
+.works li {
 	width: 100%;
 	margin-bottom: 20%;
 }
 
 @media only screen and (min-width: 700px) {
-	.project-preview {
+	.works li {
 		flex-basis: 45%;
 		min-width: 45%;
 		margin-bottom: 15%;
@@ -232,37 +239,30 @@ h2 {
 }
 
 @media only screen and (min-width: 1100px) {
-	.project-preview {
-		flex-basis: 35%;
+	.works li {
+		flex-basis: 43%;
 		min-width: 43%;
 	}
 }
 
-.project-preview .description {
+.works li .description {
 	background: rgba(156, 190, 190, 0.8);
 	position: relative;
 	transform: translate(0px, 90px);
 	border: 1px solid black;
 	padding-bottom: 5%;
 	width: 100%;
-}
-
-.project-preview .description.odd {
 	text-align: left;
 }
 
-.project-preview .description.even {
-	text-align: right;
-}
-
 @media only screen and (min-width: 1024px) {
-	.project-preview .description {
+	.works li .description {
 		transform: translate(10%, 20%);
 		padding-bottom: 10%;
 	}
 }
 
-.project-preview .description h3 {
+.works li .description h3 {
 	font-family: canada-type-gibson, sans-serif;
 	font-weight: 400;
 	color: #000d0c;
@@ -270,7 +270,7 @@ h2 {
 	padding: 20px 30px 0px;
 }
 
-.project-preview .description .category {
+.works li .description .category {
 	font-family: canada-type-gibson, sans-serif;
 	font-weight: 300;
 	color: #000d0c;
@@ -279,7 +279,7 @@ h2 {
 	display: inline;
 }
 
-.project-preview .description .buttons {
+.works li .description .buttons {
 	display: flex;
 	justify-content: space-around;
 	padding: 25px;
@@ -287,7 +287,7 @@ h2 {
 	align-content: flex-end;
 }
 
-.project-preview .description button {
+.works li .description button {
 	background: black;
 	font-family: canada-type-gibson, sans-serif;
 	font-weight: 300;
@@ -295,90 +295,60 @@ h2 {
 	padding: 10px 25px;
 }
 
-.project-preview .description button a {
+.works li .description button a {
 	color: white;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-size: 20px;
 }
 
-.project-preview .border {
+.works li:nth-child(even) .description {
+	text-align: right;
+}
+
+.works li .border {
 	width: 45%;
-	padding-bottom: 200px;
+	padding-bottom: 40%;
 	position: absolute;
 	pointer-events: none;
 	display: block;
+	background-image: url(../img/work-border-one.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-size: contain;
+	right: 0;
+	bottom: 0;
+	transform: translate(20%, 20%);
 }
 
 @media only screen and (min-width: 700px) {
-	.project-preview .border {
+	.works li .border {
 		width: 60%;
 	}
 }
 
-.project-preview .border.one {
-	background: url(../img/work-border-one.png) no-repeat;
-	background-size: contain;
-	right: 0px;
-	transform: translate(5%, -52%);
+.works li:nth-child(even) .border {
+	background-image: url(../img/work-border-two.png);
+	left: 0;
+	right: auto;
+	background-position: left bottom;
+	transform: translate(-20%, 20%);
 }
 
-@media only screen and (min-width: 700px) {
-	.project-preview .border.one {
-		transform: translate(15%, -50%);
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.project-preview .border.one {
-		transform: translate(15%, -35%);
-	}
-}
-
-@media only screen and (min-width: 1100px) {
-	.project-preview .border.one {
-		transform: translate(15%, -35%);
-	}
-}
-
-.project-preview .border.two {
-	background: url(../img/work-border-two.png) no-repeat;
-	background-size: contain;
-	transform: translate(-5%, -52%);
-}
-
-@media only screen and (min-width: 700px) {
-	.project-preview .border.two {
-		transform: translate(-20%, -50%);
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	.project-preview .border.two {
-		transform: translate(-25%, -35%);
-	}
-}
-
-@media only screen and (min-width: 1100px) {
-	.project-preview .border.two {
-		transform: translate(-25%, -35%);
-	}
-}
-
-.project-preview.krsteakbar {
+.works li.krsteakbar {
 	background: url(../img/krsteakbar.png) no-repeat;
 	background-size: cover;
 	padding-bottom: 50px;
 }
 
 @media only screen and (min-width: 700px) {
-	.project-preview.krsteakbar {
+	.works li.krsteakbar {
 		background-size: contain;
 	}
 }
 
 @media only screen and (min-width: 1024px) {
-	.project-preview.krsteakbar {
+	.works li.krsteakbar {
 		background-size: cover;
 	}
 }
@@ -393,6 +363,10 @@ h2 {
 .second-row {
 	display: flex;
 	flex-direction: row;
+}
+
+.third-row {
+	padding-bottom: 5%;
 }
 
 @media only screen and (min-width: 700px) {
@@ -515,16 +489,26 @@ h2 {
 	color: #000d0c;
 	font-size: 18px;
 	line-height: 1.25em;
+	margin-bottom: 0.75em;
 }
 
 @media only screen and (min-width: 700px) {
 	.blurb p {
-		font-size: 24px;
+		font-size: 22px;
 	}
 }
 
+.blurb .strike {
+	text-decoration: line-through;
+}
+
 .blurb a {
+	color: #264553;
+	text-decoration: none;
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
 	color: #000d0c;
+	cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -38,7 +38,10 @@ body {
 	margin: auto;
 	width: 90%;
 	@include desktop{
-		width: 80%;
+		max-width: 80%;
+	}
+	@include bg-desktop{
+		max-width: 960px;
 	}
 }
 
@@ -102,6 +105,7 @@ nav{
 	width: 100%;
 	transform-origin: bottom;
 	position: fixed;
+	z-index: -1;
 }
 
 .intro{
@@ -146,152 +150,134 @@ h2{
 	margin-bottom: 50px;
 }
 
-.works{
+.works { // a UL
 	@include tablet{
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		flex-wrap: wrap;
 	}
-}
 
-.project-preview{
-	width:	100%;
-	margin-bottom: 20%;
+	li {
+		width:	100%;
+		margin-bottom: 20%;
 
-	@include tablet{
-		flex-basis: 45%;
-		min-width: 45%;
-		margin-bottom: 15%;
-	}
+		@include tablet{
+			flex-basis: 45%;
+			min-width: 45%;
+			margin-bottom: 15%;
+		}
 
-	@include bg-desktop{
-		flex-basis: 35%;
-		min-width: 43%;
-	}
+		@include bg-desktop{
+			flex-basis: 43%;
+			min-width: 43%;
+		}
 
 
-	.description{
-		@include description-color;
-		position: relative;
-		transform: translate(0px,90px);
-		border: 1px solid black;
-		padding-bottom: 5%;
-		width: 100%;
-
-		&.odd{
+		.description{
+			@include description-color;
+			position: relative;
+			transform: translate(0px,90px);
+			border: 1px solid black;
+			padding-bottom: 5%;
+			width: 100%;
 			text-align: left;
-		}
+
+
+			@include desktop{
+				transform: translate(10%,20%);
+				padding-bottom: 10%;
+			}
+
+			h3{
+				@include regular-sans;
+				font-size: 1.75rem;
+				padding: 20px 30px 0px;
+			}
 		
-		&.even{
-			text-align: right;
+			.category{
+				@include light-sans;
+				font-size: 1.5rem;
+				padding: 5px 30px 0px;
+				display: inline;
+			}
+
+			.buttons{
+				display: flex;
+				justify-content: space-around;
+				padding: 25px;
+				bottom: 0;
+				align-content: flex-end;
+			}
+
+			button{
+				background: black;
+				@include light-sans;
+				padding: 10px 25px;
+				
+				a{
+					color: white;
+					text-decoration: none;
+					text-transform: uppercase;
+					font-size: 20px;
+				}
+			}
 		}
 
-		@include desktop{
-			transform: translate(10%,20%);
-			padding-bottom: 10%;
+		&:nth-child(even) {
+			.description {
+				text-align: right;
+			}
 		}
 
-		h3{
-			@include regular-sans;
-			font-size: 1.75rem;
-			padding: 20px 30px 0px;
-		}
-	
-		.category{
-			@include light-sans;
-			font-size: 1.5rem;
-			padding: 5px 30px 0px;
-			display: inline;
-		}
-
-		.buttons{
-			display: flex;
-			justify-content: space-around;
-			padding: 25px;
+		.border{
+			width: 45%;
+			padding-bottom: 40%;
+			position: absolute;
+			pointer-events: none;
+			display: block;
+		
+			background-image: url(../img/work-border-one.png);
+			background-repeat: no-repeat;
+			background-position: right bottom;
+			background-size: contain;
+			right: 0;
 			bottom: 0;
-			align-content: flex-end;
-		}
-
-		button{
-			background: black;
-			@include light-sans;
-			padding: 10px 25px;
-			
-			a{
-				color: white;
-				text-decoration: none;
-				text-transform: uppercase;
-				font-size: 20px;
-			}
-		}
-	}
-
-	.border{
-		width: 45%;
-		padding-bottom: 200px;
-		position: absolute;
-		pointer-events: none;
-		display: block;
-
-		@include tablet{
-			width: 60%;
-		}
-		
-		
-		&.one{
-			background: url(../img/work-border-one.png) no-repeat;
-			background-size: contain;
-			right: 0px;
-			transform: translate(5%,-52%);
+			transform: translate(20%, 20%);
 
 			@include tablet{
-				transform: translate(15%,-50%);	
-			}
-
-			@include desktop{
-				transform: translate(15%,-35%);
-			}
-
-			@include bg-desktop{
-				transform: translate(15%,-35%);
+				width: 60%;
 			}
 		}
 
-		&.two{
-			background: url(../img/work-border-two.png) no-repeat;
-			background-size: contain;
-			transform: translate(-5%,-52%);
-
-			@include tablet{
-				transform: translate(-20%,-50%);	
-			}
-
-			@include desktop{
-				transform: translate(-25%,-35%);
-			}
-
-			@include bg-desktop{
-				transform: translate(-25%,-35%);
+		&:nth-child(even) {
+			.border {
+				background-image: url(../img/work-border-two.png);
+				left: 0;
+				right: auto;
+				background-position: left bottom;
+				
+				transform: translate(-20%, 20%);
 			}
 		}
-	}
 
-	&.krsteakbar{
-		background: url(../img/krsteakbar.png) no-repeat;
-		background-size: cover;
-		padding-bottom: 50px;
-
-		@include tablet{
-			background-size: contain;
-		}
-
-		@include desktop{
+		&.krsteakbar{
+			background: url(../img/krsteakbar.png) no-repeat;
 			background-size: cover;
+			padding-bottom: 50px;
+
+			@include tablet{
+				background-size: contain;
+			}
+
+			@include desktop{
+				background-size: cover;
+			}
 		}
 	}
-}
 
+
+}
 // About
 
 .about-content{
@@ -307,6 +293,8 @@ h2{
 }
 
 .third-row{
+	padding-bottom: 5%;
+
 	@include tablet{
 		display: flex;
 		justify-content: space-between;
@@ -360,16 +348,6 @@ h2{
 	}
 }
 
-// .canvas-play{
-// 	visibility: hidden;
-// 	@include description-color;
-// 	width: 40%;
-	
-// 	@include desktop{
-// 		visibility: visible;
-// 	}
-// }
-
 .five-w{
 	@include description-color;
 	padding: 5%;
@@ -421,14 +399,23 @@ h2{
 		@include light-sans;
 		font-size: 18px;
 		line-height: 1.25em;
+		margin-bottom: 0.75em;
 
 		@include tablet{
-			font-size: 24px;
+			font-size: 22px;
 		}
+	}
+
+	.strike{
+		text-decoration: line-through;
 
 	}
 
 	a{
-		color: #000d0c;
+		color: #264553;
+		text-decoration: none;
+		@include regular-sans;
+		cursor: pointer;
 	}
+
 }

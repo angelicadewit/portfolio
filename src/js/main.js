@@ -5,10 +5,16 @@ const app = new PIXI.Application({
     transparent: true,
 })
 
-const container = new PIXI.Container();
-container.x = 500
-container.y = 600
-app.stage.addChild(container)
+const fogContainer = new PIXI.Container();
+fogContainer.x = 500
+fogContainer.y = 400
+
+const snowContainer = new PIXI.Container();
+snowContainer.x = 500
+snowContainer.y = 400
+
+app.stage.addChild(fogContainer)
+app.stage.addChild(snowContainer)
 
 
 let manifest = [
@@ -37,9 +43,14 @@ let manifest = [
         "url": "dist/img/background.jpg"
     },
     {
-        "key": "background",
-        "url": "dist/img/bghorizontalcrop.png"
+        "key": "fogOne",
+        "url": "dist/img/fog1.png"
     },
+    {
+        "key": "inkblot",
+        "url": "dist/img/random-ink-bleed.mp4"
+    }
+
 ]
 
 
@@ -52,24 +63,109 @@ function loadAssets(){
     app.loader.load(onAssetsLoaded)
 }
 
+// let snowEmitter= new PIXI.particles.Emitter(
+//     snowContainer,
+//     [PIXI.Texture.fromImage('dist/img/snow100.png')],
+//     {
+//         "alpha": {
+//             "start": 1,
+//             "end": 0
+//         },
+//         "scale": {
+//             "start": 0.07,
+//             "end": 0.32,
+//             "minimumScaleMultiplier": 1
+//         },
+//         "color": {
+//             "start": "#002c38",
+//             "end": "#d2eff0"
+//         },
+//         "speed": {
+//             "start": 183,
+//             "end": 34,
+//             "minimumSpeedMultiplier": 1
+//         },
+//         "acceleration": {
+//             "x": -10,
+//             "y": 0
+//         },
+//         "maxSpeed": 0,
+//         "startRotation": {
+//             "min": 0,
+//             "max": 355
+//         },
+//         "noRotation": true,
+//         "rotationSpeed": {
+//             "min": 4,
+//             "max": 0
+//         },
+//         "lifetime": {
+//             "min": 0.15,
+//             "max": 0.8
+//         },
+//         "blendMode": "normal",
+//         "frequency": 0.001,
+//         "emitterLifetime": -1,
+//         "maxParticles": 500,
+//         "pos": {
+//             "x": 0,
+//             "y": 0
+//         },
+//         "addAtBack": false,
+//         "spawnType": "circle",
+//         "autoUpdate": true,
+//         "spawnCircle": {
+//             "x": 0,
+//             "y": 0,
+//             "r": 0
+//         },
+//     }
+// );
+
+// snowEmitter.emit = false;
+
 function onAssetsLoaded(loader, resources){
     console.log(resources)
 
-    // setupBackground()
-
-    // setupTreeRowOne()
+    setupFogOne()
     
     // setupTreesRowTwo()
 
     app.ticker.add((e) => update(e))
 }
 
-function setupBackground(){
-    let bg = new PIXI.Sprite(app.loader.resources.background.texture)
-    app.stage.addChild(bg)
+function setupFogOne(){
 
-    
+    let vidTex = new PIXI.Texture.fromVideo(app.loader.resources.inkblot.data)
+    let vid = new PIXI.Sprite(vidTex)
+    app.stage.addChild(vid)
+
+    vidTex.baseTexture.source.setAttribute("loop","")
+
+    let fogOne = new PIXI.Sprite(app.loader.resources.fogOne.texture)
+    fogOne.opacity = 0.5
+    fogOne.y = 100
+    app.stage.addChild(fogOne)
+
+
+    // TweenMax.fromTo(fogOne, 20,
+    //     {
+    //         x:-1000
+    //     },
+    //     {
+    //         x:1280,
+    //         repeat: -1,
+    //         ease: Linear.easeNone,
+    //         yoyo:true
+    //     })
+
+    fogOne.mask = vid
 }
+
+function setupFilter(){
+
+}
+
 
 function setupTreeRowOne(){
     console.log(`one`)
@@ -119,66 +215,10 @@ function resize(e){
     app.view.style.transform = "scale(" + scale + ")"
 }
 
-var emitter = new PIXI.particles.Emitter(
-    container,
-    [PIXI.Texture.fromImage('dist/img/snow100.png')],
-    {
-        "alpha": {
-            "start": 1,
-            "end": 0
-        },
-        "scale": {
-            "start": 0.07,
-            "end": 0.32,
-            "minimumScaleMultiplier": 1
-        },
-        "color": {
-            "start": "#002c38",
-            "end": "#d2eff0"
-        },
-        "speed": {
-            "start": 183,
-            "end": 34,
-            "minimumSpeedMultiplier": 1
-        },
-        "acceleration": {
-            "x": -10,
-            "y": 0
-        },
-        "maxSpeed": 0,
-        "startRotation": {
-            "min": 0,
-            "max": 355
-        },
-        "noRotation": true,
-        "rotationSpeed": {
-            "min": 4,
-            "max": 0
-        },
-        "lifetime": {
-            "min": 0.15,
-            "max": 0.8
-        },
-        "blendMode": "normal",
-        "frequency": 0.001,
-        "emitterLifetime": -1,
-        "maxParticles": 500,
-        "pos": {
-            "x": 0,
-            "y": 0
-        },
-        "addAtBack": false,
-        "spawnType": "circle",
-        "autoUpdate": true,
-        "spawnCircle": {
-            "x": 0,
-            "y": 0,
-            "r": 0
-        },
-    }
-);
+window.addEventListener(`click`, function(e){
+    // snowEmitter.emit = !snowEmitter.emit
+})
 
-emitter.emit = true;
 
 window.onload = function(){
     window.addEventListener("resize", resize)

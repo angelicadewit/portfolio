@@ -1,0 +1,126 @@
+.works { // a UL
+	@include tablet{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+
+	li {
+		width:	100%;
+		margin-bottom: 20%;
+
+		@include tablet{
+			flex-basis: 45%;
+			min-width: 45%;
+			margin-bottom: 15%;
+		}
+
+		@include bg-desktop{
+			flex-basis: 43%;
+			min-width: 43%;
+		}
+
+
+		.description{
+			@include description-color;
+			position: relative;
+			transform: translate(0px,90px);
+			border: 1px solid black;
+			padding-bottom: 5%;
+			width: 100%;
+			text-align: left;
+
+
+			@include desktop{
+				transform: translate(10%,20%);
+				padding-bottom: 10%;
+			}
+
+			h3{
+				@include regular-sans;
+				font-size: 1.75rem;
+				padding: 20px 30px 0px;
+			}
+		
+			.category{
+				@include light-sans;
+				font-size: 1.5rem;
+				padding: 5px 30px 0px;
+				display: inline;
+			}
+
+			.buttons{
+				display: flex;
+				justify-content: space-around;
+				padding: 25px;
+				bottom: 0;
+				align-content: flex-end;
+			}
+
+			button{
+				background: black;
+				@include light-sans;
+				padding: 10px 25px;
+				
+				a{
+					color: white;
+					text-decoration: none;
+					text-transform: uppercase;
+					font-size: 20px;
+				}
+			}
+		}
+
+		&:nth-child(even) {
+			.description {
+				text-align: right;
+			}
+		}
+
+		.border{
+			width: 45%;
+			padding-bottom: 40%;
+			position: absolute;
+			pointer-events: none;
+			display: block;
+		
+			background-image: url(../img/work-border-one.png);
+			background-repeat: no-repeat;
+			background-position: right bottom;
+			background-size: contain;
+			right: 0;
+			bottom: 0;
+			transform: translate(20%, 20%);
+
+			@include tablet{
+				width: 60%;
+			}
+		}
+
+		&:nth-child(even) {
+			.border {
+				background-image: url(../img/work-border-two.png);
+				left: 0;
+				right: auto;
+				background-position: left bottom;
+				
+				transform: translate(-20%, 20%);
+			}
+		}
+
+		&.krsteakbar{
+			background: url(../img/krsteakbar.png) no-repeat;
+			background-size: cover;
+			padding-bottom: 50px;
+
+			@include tablet{
+				background-size: contain;
+			}
+
+			@include desktop{
+				background-size: cover;
+			}
+        }
+    }
+}

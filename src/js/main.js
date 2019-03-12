@@ -17,6 +17,8 @@ app.stage.addChild(fogContainer)
 app.stage.addChild(snowContainer)
 
 
+
+
 let manifest = [
     {
         "key": "fox",
@@ -48,7 +50,7 @@ let manifest = [
     },
     {
         "key": "inkblot",
-        "url": "dist/img/random-ink-bleed.mp4"
+        "url": "dist/img/inkblot.mp4"
     }
 
 ]
@@ -127,9 +129,11 @@ function loadAssets(){
 function onAssetsLoaded(loader, resources){
     console.log(resources)
 
+    setupTreesRowOne()
+    
     setupFogOne()
     
-    // setupTreesRowTwo()
+    // setupFox()
 
     app.ticker.add((e) => update(e))
 }
@@ -139,46 +143,45 @@ function setupFogOne(){
     let vidTex = new PIXI.Texture.fromVideo(app.loader.resources.inkblot.data)
     let vid = new PIXI.Sprite(vidTex)
 
-    vid.anchor.set(0.2)
+    // vid.anchor.set(0.2)
     app.stage.addChild(vid)
 
 
     vidTex.baseTexture.source.setAttribute("loop","")
+    // vidTex.baseTexture.source.playbackRate = 2
 
     let fogOne = new PIXI.Sprite(app.loader.resources.fogOne.texture)
-    fogOne.alpha = 0.5
-    fogOne.y = 100
+    fogOne.alpha = 0.7
+    fogOne.y = 150
     app.stage.addChild(fogOne)
 
 
-    // TweenMax.fromTo(fogOne, 20,
-    //     {
-    //         x:-1000
-    //     },
-    //     {
-    //         x:1280,
-    //         repeat: -1,
-    //         ease: Linear.easeNone,
-    //         yoyo:true
-    //     })
+    TweenMax.fromTo(fogOne, 50,
+        {
+            x:-1000,
+        },
+        {
+            x:1000,
+            repeat: -1,
+            ease: Linear.easeNone,
+            repeat: true,
+        })
 
     fogOne.mask = vid
 }
 
-function setupFilter(){
 
-}
-
-
-function setupTreeRowOne(){
+function setupTreesRowOne(){
     console.log(`one`)
     
     let tree;
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 30; i++){
         tree = new PIXI.Sprite(app.loader.resources.treeThree.texture)
         tree.anchor.set(0.5,1)
-        tree.x = 610
-        tree.y = 150 + (i * 100)
+        let spacing = 50
+        let xOffset = 10
+        tree.x = randomInt(200, app.renderer.height - tree.width)
+        tree.y = randomInt(300, app.renderer.height - tree.height)
         app.stage.addChild(tree)
     }
 }
@@ -194,6 +197,17 @@ function setupTreesRowTwo(){
         tree.y = 610
         app.stage.addChild(tree)
     }
+}
+
+function setupFox(){
+    let fox = new PIXI.Sprite(app.loader.resources.foxTwo.texture)
+    fox.x = 600
+    fox.y = 350
+    app.stage.addChild(fox)
+}
+
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 

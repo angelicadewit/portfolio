@@ -1,5 +1,7 @@
 "use strict";
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var app = new PIXI.Application({
     view: document.getElementById("backgroundCanvas"),
     width: 1280,
@@ -41,7 +43,7 @@ var manifest = [{
     "url": "dist/img/fog1.png"
 }, {
     "key": "inkblot",
-    "url": "dist/img/random-ink-bleed.mp4"
+    "url": "dist/img/inkblot.mp4"
 }];
 
 // let treeOne = new PIXI.Sprite(app.loader.resources.treeOne.texture)
@@ -117,9 +119,11 @@ function loadAssets() {
 function onAssetsLoaded(loader, resources) {
     console.log(resources);
 
+    setupTreesRowOne();
+
     setupFogOne();
 
-    // setupTreesRowTwo()
+    // setupFox()
 
     app.ticker.add(function (e) {
         return update(e);
@@ -131,41 +135,39 @@ function setupFogOne() {
     var vidTex = new PIXI.Texture.fromVideo(app.loader.resources.inkblot.data);
     var vid = new PIXI.Sprite(vidTex);
 
-    vid.anchor.set(0.2);
+    // vid.anchor.set(0.2)
     app.stage.addChild(vid);
 
     vidTex.baseTexture.source.setAttribute("loop", "");
+    // vidTex.baseTexture.source.playbackRate = 2
 
     var fogOne = new PIXI.Sprite(app.loader.resources.fogOne.texture);
-    fogOne.alpha = 0.5;
-    fogOne.y = 100;
+    fogOne.alpha = 0.7;
+    fogOne.y = 150;
     app.stage.addChild(fogOne);
 
-    // TweenMax.fromTo(fogOne, 20,
-    //     {
-    //         x:-1000
-    //     },
-    //     {
-    //         x:1280,
-    //         repeat: -1,
-    //         ease: Linear.easeNone,
-    //         yoyo:true
-    //     })
+    TweenMax.fromTo(fogOne, 50, {
+        x: -1000
+    }, _defineProperty({
+        x: 1000,
+        repeat: -1,
+        ease: Linear.easeNone
+    }, "repeat", true));
 
     fogOne.mask = vid;
 }
 
-function setupFilter() {}
-
-function setupTreeRowOne() {
+function setupTreesRowOne() {
     console.log("one");
 
     var tree = void 0;
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 30; i++) {
         tree = new PIXI.Sprite(app.loader.resources.treeThree.texture);
         tree.anchor.set(0.5, 1);
-        tree.x = 610;
-        tree.y = 150 + i * 100;
+        var spacing = 50;
+        var xOffset = 10;
+        tree.x = randomInt(200, app.renderer.height - tree.width);
+        tree.y = randomInt(300, app.renderer.height - tree.height);
         app.stage.addChild(tree);
     }
 }
@@ -181,6 +183,17 @@ function setupTreesRowTwo() {
         tree.y = 610;
         app.stage.addChild(tree);
     }
+}
+
+function setupFox() {
+    var fox = new PIXI.Sprite(app.loader.resources.foxTwo.texture);
+    fox.x = 600;
+    fox.y = 350;
+    app.stage.addChild(fox);
+}
+
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function update(e) {}

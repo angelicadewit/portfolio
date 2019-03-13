@@ -1,7 +1,5 @@
 "use strict";
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 var app = new PIXI.Application({
     view: document.getElementById("backgroundCanvas"),
     width: 1280,
@@ -142,17 +140,17 @@ function setupFogOne() {
     // vidTex.baseTexture.source.playbackRate = 2
 
     var fogOne = new PIXI.Sprite(app.loader.resources.fogOne.texture);
-    fogOne.alpha = 0.7;
+    fogOne.alpha = 0.8;
     fogOne.y = 150;
     app.stage.addChild(fogOne);
 
     TweenMax.fromTo(fogOne, 50, {
         x: -1000
-    }, _defineProperty({
+    }, {
         x: 1000,
         repeat: -1,
         ease: Linear.easeNone
-    }, "repeat", true));
+    });
 
     fogOne.mask = vid;
 }

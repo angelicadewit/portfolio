@@ -112,7 +112,7 @@ nav{
 .intro{
 	position: relative;
 	margin: 40% auto;
-	background: linear-gradient(to right, transparent 10%, white, transparent 90%);
+	background: linear-gradient(to right, transparent, white 40%, transparent 90%);
 	
 
 	@include tablet{
@@ -401,7 +401,7 @@ h2{
 	h3{
 		@include regular-sans;
 		font-size: 2rem;
-		padding-bottom: 5px;
+		padding-top: 15px;
 
 		@include tablet{
 			font-size: 3rem;

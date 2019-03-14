@@ -169,7 +169,7 @@ nav ul a:hover {
 .intro {
 	position: relative;
 	margin: 40% auto;
-	background: linear-gradient(to right, transparent 10%, white, transparent 90%);
+	background: linear-gradient(to right, transparent, white 40%, transparent 90%);
 }
 
 @media only screen and (min-width: 700px) {
@@ -495,7 +495,7 @@ h2 {
 	font-weight: 400;
 	color: #000d0c;
 	font-size: 2rem;
-	padding-bottom: 5px;
+	padding-top: 15px;
 }
 
 @media only screen and (min-width: 700px) {

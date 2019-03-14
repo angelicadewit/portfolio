@@ -479,4 +479,58 @@ h2 {
 	cursor: pointer;
 }
 
+.contact-container {
+	background: rgba(156, 190, 190, 0.8);
+	padding: 5%;
+}
+
+@media only screen and (min-width: 700px) {
+	.contact-container {
+		display: flex;
+	}
+}
+
+.contact-container h3 {
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	color: #000d0c;
+	font-size: 2rem;
+	padding-bottom: 5px;
+}
+
+@media only screen and (min-width: 700px) {
+	.contact-container h3 {
+		font-size: 3rem;
+	}
+}
+
+.contact-container a {
+	color: #264553;
+	text-decoration: none;
+	font-family: canada-type-gibson, sans-serif;
+	font-weight: 400;
+	color: #000d0c;
+	cursor: pointer;
+	font-size: 1.5rem;
+	display: block;
+}
+
+@media only screen and (min-width: 700px) {
+	.contact-container a {
+		font-size: 2rem;
+	}
+}
+
+.contact-container .left-col {
+	width: 50%;
+}
+
+.contact-container .right-col {
+	background-image: url(../img/contact.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position-y: 100%;
+	width: 50%;
+}
+
 /*# sourceMappingURL=main.css.map */

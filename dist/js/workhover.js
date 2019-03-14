@@ -3,9 +3,9 @@
 var hover = document.querySelector(".border");
 
 hover.addEventListener("mouseover", function (e) {
-    x: e.offset.x;
-    y: e.offset.y;
+    var x = e.offsetX;
+    var y = e.offsetY;
 
-    hover.transform.x = x + 100 + "px";
+    console.log(x, y);
 });
 //# sourceMappingURL=workhover.js.map

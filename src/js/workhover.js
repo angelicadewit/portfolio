@@ -1,9 +1,9 @@
 let hover = document.querySelector(`.border`)
 
 hover.addEventListener(`mouseover`, function(e){
-    x: e.offset.x
-    y: e.offset.y
+    let x =  e.offsetX
+    let y = e.offsetY
     
-    hover.transform.x = x + 100 + "px"
+    console.log(x,y)
 });
 

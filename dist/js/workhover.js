@@ -1,10 +1,14 @@
 "use strict";
 
 var hover = document.querySelector(".border");
+var buttonGroup = document.querySelector(".buttons");
 
 hover.addEventListener("mouseover", function (e) {
     var offsetX = e.offsetX;
     var offsetY = e.offsetY;
+
+    var buttonOffsetX = buttonGroup.offsetX;
+    var buttonOffsetY = buttonGroup.offsetY;
 
     TweenMax.to(hover, 2, {
         x: offsetX + 5,

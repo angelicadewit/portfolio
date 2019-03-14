@@ -230,9 +230,6 @@ h2 {
 .works li {
 	width: 100%;
 	margin-bottom: 20%;
-	background-image: url(../img/workbg2.png);
-	background-size: cover;
-	background-position-x: 30%;
 }
 
 @media only screen and (min-width: 700px) {
@@ -248,6 +245,12 @@ h2 {
 		flex-basis: 43%;
 		min-width: 43%;
 	}
+}
+
+.works li .border {
+	background-image: url(../img/workbg2.png);
+	background-size: cover;
+	background-position-x: 30%;
 }
 
 .works li .description {

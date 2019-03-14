@@ -1,8 +1,13 @@
 let hover = document.querySelector(`.border`)
+let buttonGroup = document.querySelector(`.buttons`)
 
 hover.addEventListener(`mouseover`, function(e){
     let offsetX =  e.offsetX
     let offsetY = e.offsetY
+
+    let buttonOffsetX = buttonGroup.offsetX
+    let buttonOffsetY = buttonGroup.offsetY
+
     
     TweenMax.to(hover, 2, {
         x: offsetX + 5,

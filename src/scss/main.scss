@@ -163,10 +163,6 @@ h2{
 	li {
 		width:	100%;
 		margin-bottom: 20%;
-		background-image: url(../img/workbg2.png);
-		background-size: cover;
-		background-position-x: 30%;
-		
 
 		@include tablet{
 			flex-basis: 45%;
@@ -177,6 +173,12 @@ h2{
 		@include bg-desktop{
 			flex-basis: 43%;
 			min-width: 43%;
+		}
+
+		.border{
+			background-image: url(../img/workbg2.png);
+			background-size: cover;
+			background-position-x: 30%;
 		}
 
 

@@ -116,7 +116,7 @@ nav{
 	
 
 	@include tablet{
-		margin: 60% auto;
+		margin: 30% auto;
 		margin-bottom: 5%;
 	}
 }
@@ -148,6 +148,7 @@ h1{
 
 h2{
 	@include bold-serif;
+	@include header-color;
 	font-size: 3rem;
 	margin-bottom: 50px;
 }
@@ -188,8 +189,9 @@ h2{
 
 			&.even{
 				background-image: url(../img/workbg1.png);
-				background-size: 95%;
+				background-size: contain;
 				background-repeat: no-repeat;
+				background-position-y: 0%;
 
 				&:hover{
 					animation: ani-background-even 1s infinite;
@@ -214,13 +216,13 @@ h2{
 		@keyframes ani-background-even{
 			
 			10%{
-				background-size: 97%;
+				background-position-y: -5%;
 			}
 			30%{
-				background-size: 95%;
+				background-position-y: -2%;
 			}
 			60%{
-				background-size: 93%;
+				background-position-y: -4%;
 			}
 		}
 
@@ -237,8 +239,8 @@ h2{
 			z-index: 2;
 
 			@include desktop{
-				// transform: translate(10%,20%);
-				padding-left: 5%;
+				// // transform: translate(10%,20%);
+				// padding-left: 5%;
 				text-align: left;
 			}
 
@@ -299,10 +301,26 @@ h2{
 }
 // About
 
-.about-content{
+#about{
 	@include tablet{
 		display: flex;
 		flex-direction: column;
+		position: relative;
+	}
+
+
+	.bottom-border{
+		width: 100%;
+		padding-bottom: 30%;
+		position: absolute;
+		pointer-events: none;
+		display: block;
+		background-image: url(../img/work-border-one.png);
+		background-repeat: no-repeat;
+		background-position: right bottom;
+		background-size: contain;
+		bottom: -3%;
+		transform: rotate(10deg);
 	}
 }
 
@@ -324,7 +342,7 @@ h2{
 }
 
 .header{
-	@include description-color;
+	@include header-color;
 	width: 100%;
 	text-align: center;
 	h2{

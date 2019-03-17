@@ -26,12 +26,15 @@ TABLE OF CONTENTS:
 }
 
 body {
-	background: url(../img/img212.jpg) no-repeat;
-	background-position: 70%;
-	background-size: cover;
-	background-attachment: fixed;
-	width: 100%;
-	overflow-x: hidden;
+	background-image: url(../img/mobilebg.jpg);
+	background-size: contain;
+	
+	@include desktop{
+		background-repeat: no-repeat;
+		background-image: url(../img/img212.jpg);
+		background-size: cover;
+		background-attachment: fixed;
+	}
 }
 
 .wrapper{
@@ -45,7 +48,7 @@ body {
 	}
 }
 
-#nav-thing{
+.nav-thing{
 	height: 100px;
 }
 
@@ -87,6 +90,7 @@ nav{
 			color: $link-color;
 			font-size: 1.5rem;
 			text-decoration: none;
+			padding: 3%;
 
 			&:hover{
 				background: white;
@@ -107,17 +111,22 @@ nav{
 	transform-origin: bottom;
 	position: fixed;
 	z-index: -1;
+	display: none;
+
+	@include desktop{
+		display: block;
+	}
 }
 
 .intro{
 	position: relative;
 	margin: 40% auto;
-	background: linear-gradient(to right, transparent, white 40%, transparent 90%);
 	
 
 	@include tablet{
 		margin: 30% auto;
 		margin-bottom: 5%;
+		@include header-color;
 	}
 }
 
@@ -148,9 +157,12 @@ h1{
 
 h2{
 	@include bold-serif;
-	@include header-color;
 	font-size: 3rem;
 	margin-bottom: 50px;
+	
+	@include tablet{
+		@include header-color;
+	}
 }
 
 .works { // a UL
@@ -311,16 +323,17 @@ h2{
 
 	.bottom-border{
 		width: 100%;
-		padding-bottom: 30%;
+		padding-bottom: 20%;
 		position: absolute;
 		pointer-events: none;
 		display: block;
-		background-image: url(../img/work-border-one.png);
+		background-image: url(../img/aboutborder.png);
 		background-repeat: no-repeat;
 		background-position: right bottom;
 		background-size: contain;
-		bottom: -3%;
-		transform: rotate(10deg);
+		bottom: -7%;
+		transform: rotate(-5deg);
+		
 	}
 }
 
@@ -342,9 +355,13 @@ h2{
 }
 
 .header{
-	@include header-color;
 	width: 100%;
 	text-align: center;
+	
+	@include tablet{
+		@include header-color;
+	}
+
 	h2{
 		padding: 20px 0px;
 	}
@@ -423,6 +440,7 @@ h2{
 .blurb{
 	@include description-color;
 	padding: 5%;
+	border-radius: 16% 84% 18% 82% / 62% 36% 64% 38%;
 
 	@include tablet{
 		width: 62%;

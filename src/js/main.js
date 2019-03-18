@@ -1,5 +1,5 @@
 const app = new PIXI.Application({
-    view: document.getElementById("backgroundCanvas"),
+    view: document.getElementById("desktopCanvas"),
     width: 1280,
     height: 720,
     transparent: true,
@@ -50,7 +50,7 @@ let manifest = [
     },
     {
         "key": "inkblot",
-        "url": "dist/img/inkblot.mp4"
+        "url": "dist/img/inkblot2.mp4"
     }
 
 ]
@@ -146,12 +146,13 @@ function setupFogOne(){
     // vid.anchor.set(0.2)
     app.stage.addChild(vid)
 
+    console.log(vidTex)
 
-    vidTex.baseTexture.source.setAttribute("loop","")
+    vidTex.baseTexture.source.setAttribute("loop","", "muted")
     // vidTex.baseTexture.source.playbackRate = 2
 
     let fogOne = new PIXI.Sprite(app.loader.resources.fogOne.texture)
-    fogOne.alpha = 0.8
+    fogOne.alpha = 0.7
     fogOne.y = 150
     app.stage.addChild(fogOne)
 

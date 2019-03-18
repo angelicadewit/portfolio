@@ -15,13 +15,13 @@
 @mixin regular-sans{
     font-family: canada-type-gibson, sans-serif;
     font-weight: 400;
-    color: #000d0c;
+    color: #112241;
 }
 
 @mixin bold-sans{
     font-family: canada-type-gibson, sans-serif;
     font-weight: 700;
-    color: #000d0c;
+    color: #112241;
 }
 @mixin nav-font{
     font-family: pulpo-rust-75, serif;
@@ -31,7 +31,7 @@
 
 @mixin bold-serif{
     font-family: minion-std-black, sans-serif;
-	font-weight: 700;
+    font-weight: 700;
     font-style: normal;
     color: #316083;
 }

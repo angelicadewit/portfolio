@@ -130,11 +130,13 @@ nav ul {
 	width: 100%;
 	justify-content: space-around;
 	align-items: center;
+	padding: 10px 0px;
 }
 
 @media only screen and (min-width: 1024px) {
 	nav ul {
 		width: 70%;
+		padding: 0px;
 	}
 }
 
@@ -150,10 +152,13 @@ nav ul a {
 	font-size: 1.5rem;
 	text-decoration: none;
 	padding: 3%;
+	transition: 0.2s;
 }
 
 nav ul a:hover {
-	background: white;
+	color: #001935;
+	text-shadow: 1px 1px 0 #b2cdd5, -1px -1px 0 #b2cdd5, 1px -1px 0 #b2cdd5, -1px 1px 0 #b2cdd5, 1px 1px 0 #b2cdd5;
+	transition: 0.2s;
 }
 
 @media only screen and (min-width: 700px) {
@@ -227,6 +232,14 @@ h1 {
 	font-size: 2rem;
 	text-align: center;
 	display: block;
+	width: 60%;
+	margin: 0 auto;
+}
+
+@media only screen and (min-width: 700px) {
+	.landing-page {
+		width: 100%;
+	}
 }
 
 @media only screen and (min-width: 1024px) {

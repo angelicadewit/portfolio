@@ -75,9 +75,11 @@ nav{
 		width: 100%;
 		justify-content: space-around;
 		align-items: center;
+		padding: 10px 0px;
 
 		@include desktop{
 			width: 70%;
+			padding: 0px;
 		}
 
 		li{
@@ -91,13 +93,22 @@ nav{
 			font-size: 1.5rem;
 			text-decoration: none;
 			padding: 3%;
+			transition: 0.2s;
 
 			&:hover{
-				background: white;
+				color: #001935;
+				text-shadow:
+					1px 1px 0 $link-color,
+					-1px -1px 0 $link-color,  
+					1px -1px 0 $link-color,
+					-1px 1px 0 $link-color,
+					1px 1px 0 $link-color;
+				transition: 0.2s;
 			}
 
 			@include tablet{
 				font-size: 2rem;
+				
 			}
 		}
 	}
@@ -132,6 +143,8 @@ nav{
 .intro{
 	position: relative;
 	margin: 40% auto;
+
+
 	
 
 	@include tablet{
@@ -158,6 +171,12 @@ h1{
 	font-size: 2rem;
 	text-align: center;
 	display: block;
+	width: 60%;
+	margin: 0 auto;
+
+	@include tablet{
+		width: 100%;
+	}
 	
 	@include desktop{
 		font-size: 4rem;
